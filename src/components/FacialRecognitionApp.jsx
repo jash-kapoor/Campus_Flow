@@ -6,7 +6,7 @@ import * as XLSX from "xlsx";
 import JSZip from "jszip";
 
 // --- CONFIGURATION ---
-const API_URL = "http://localhost:5001/api";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001/api";
 // Ensure JWT is attached for all requests from this module
 axios.interceptors.request.use((config) => {
   const stored = localStorage.getItem("userInfo");

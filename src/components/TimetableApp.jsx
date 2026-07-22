@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 // --- CONFIGURATION ---
-const API_URL = "http://localhost:5001/api";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001/api";
 // Attach JWT to all requests if available
 axios.interceptors.request.use((config) => {
   const stored = localStorage.getItem('userInfo');
