@@ -11,7 +11,14 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors());
+
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-tenant-id'],
+  credentials: true
+}));
+app.options('*', cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
